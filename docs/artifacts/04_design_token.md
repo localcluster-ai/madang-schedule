@@ -1,14 +1,22 @@
-# Cheongsa Design Token: Madang-Schedule Look & Feel
+# [LOG] Cheongsa Designer Decision
+- **Decision**: Use Tailwind CSS for rapid and consistent styling.
+- **Rationale**: To provide a professional 'Admin Dashboard' feel with minimal bundle size.
+- **Decision**: Implement 'Glassmorphism' cards for a modern AI-agent workspace look.
 
-## 1. 테마: "Bright Hanok" (밝고 정갈한 미학)
-- **Primary**: `#4A5568` (기와 그레이)
-- **Accent**: `#3182CE` (하늘 블루)
-- **Background**: `#F7FAFC` (백자 화이트)
+# Madang-Schedule v2: Visual Design System
 
-## 2. 레이아웃 원칙
-- **Cleanliness**: 군더더기 없는 카드 타입 리스트.
-- **Micro-interaction**: 버튼 클릭 시 가벼운 그림자 효과.
-- **Typography**: Pretendard (가독성 중점).
+## 1. Design Tokens (Tailwind Config)
+- **Colors**:
+    - `brand-primary`: `#1E293B` (Slate 800)
+    - `brand-accent`: `#3B82F6` (Blue 500)
+    - `status-urgent`: `#EF4444` (Red 500)
+- **Shadows**: `shadow-lg`, `hover:shadow-2xl` transition.
+
+## 2. Component Hierarchy
+- `Navbar`: Global navigation.
+- `ScheduleList`: Grouped by date.
+- `ScheduleCard`: Visual indicator for priority (Color-coded bar).
+- `ScheduleModal`: Focus state for creation/editing.
 
 ---
-*Cheongsa - Aesthetic consistency guaranteed.*
+*Designed by Cheongsa - Aesthetic Governance v2.0*

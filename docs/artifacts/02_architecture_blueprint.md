@@ -1,15 +1,48 @@
-# Dopyeonsu Blueprint: Madang-Schedule Architecture
+# [LOG] Dopyeonsu Architect Decision
+- **Decision**: 3-Tier Layered Architecture with Domain-Driven Design (DDD) principles.
+- **Rationale**: To ensure scalability and separation of concerns between business logic and infrastructure.
+- **Design Pattern**: Repository Pattern for data access, DTO for data transfer.
 
-## 1. 데이터 모델링 (MySQL)
-- `schedules` 테이블: `id` (PK), `title`, `content`, `start_time`, `end_time`, `created_at`.
+# Madang-Schedule v2: High-Level Architecture
 
-## 2. API 명세 (REST)
-- `GET /api/schedules`: 전체 일정 조회
-- `POST /api/schedules`: 일정 생성
-- `DELETE /api/schedules/{id}`: 일정 삭제
+## 1. System Topology (UML)
 
-## 3. 계층 구조 (Backend)
-- `Controller` -> `Service` -> `Repository` -> `Entity` (JPA 표준)
+```mermaid
+graph TD
+    subgraph Frontend [Next.js Client]
+        UI[User Interface] --> SC[Server Components]
+        SC --> API_C[API Client]
+    end
+
+    subgraph Backend [Spring Boot Server]
+        API_C --> CTRL[ScheduleController]
+        CTRL --> SVC[ScheduleService]
+        SVC --> REPO[ScheduleRepository]
+        REPO --> ENTITY[ScheduleEntity]
+    end
+
+    subgraph Storage [Infrastructure]
+        ENTITY --> DB[(MySQL 8.0)]
+    end
+```
+
+## 2. Dynamic Sequence (UML)
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant NextJS as Frontend (Next.js)
+    participant Spring as Backend (Spring Boot)
+    participant DB as Database (MySQL)
+
+    User->>NextJS: 일정 생성 요청 (Title, Date)
+    NextJS->>Spring: POST /api/v1/schedules (JSON)
+    Spring->>Spring: 데이터 검증 (Validation)
+    Spring->>DB: INSERT INTO schedules...
+    DB-->>Spring: ID 반환
+    Spring-->>NextJS: 201 Created (DTO)
+    NextJS-->>User: 성공 UI 업데이트
+```
 
 ---
-*Dopyeonsu - Architectural sovereignty established.*
+*Architected by Dopyeonsu - Sovereign Blueprint v2.0*

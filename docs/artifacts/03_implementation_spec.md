@@ -1,18 +1,44 @@
-# Moyoung Detailed Spec: Implementation Specs
+# [LOG] Moyoung Specifier Decision
+- **Decision**: Define strict JPA mapping and use Bean Validation (JSR-303).
+- **Rationale**: To prevent data corruption at the entry point.
+- **Decision**: Add 'Category' and 'Priority' fields to improve UX as requested by Cheongsa.
 
-## 1. Backend 상세 (Spring Boot)
-- **Package**: `com.localcluster.madang.schedule`
-- **Entity**: `Schedule.java` (Lombok, JPA 적용)
-- **CORS Config**: `WebConfig.java`에서 `http://localhost:3000` 허용.
+# Madang-Schedule v2: Implementation Specification
 
-## 2. Frontend 상세 (Next.js)
-- **Page**: `/app/page.tsx` (일정 목록 및 입력 폼)
-- **Components**: `ScheduleCard.tsx`, `ScheduleForm.tsx`
-- **State Management**: `useState`, `useEffect` 기반의 단순 상태 관리.
+## 1. Database Entity Relationship Diagram (ERD)
 
-## 3. Infra 상세
-- **docker-compose.yml**: `backend`, `frontend`, `mysql` 서비스 정의.
-- **Environment**: `.env` 파일을 통한 DB 접속 정보 관리.
+```mermaid
+erDiagram
+    SCHEDULE {
+        bigint id PK "AUTO_INCREMENT"
+        varchar title "NOT NULL, max 100"
+        text description "Optional"
+        varchar category "ENUM: WORK, PERSONAL, LIFE"
+        integer priority "1-5"
+        datetime start_at "NOT NULL"
+        datetime end_at "NOT NULL"
+        timestamp created_at
+        timestamp updated_at
+    }
+```
+
+## 2. API Endpoints (Swagger-like)
+
+### [POST] /api/v1/schedules
+- **Request Body**:
+  ```json
+  {
+    "title": "STARK OS Meeting",
+    "description": "Finalizing Phase 3",
+    "category": "WORK",
+    "priority": 5,
+    "startAt": "2026-02-24T10:00:00",
+    "endAt": "2026-02-24T11:00:00"
+  }
+  ```
+- **Responses**:
+    - `201 Created`: Schedule object.
+    - `400 Bad Request`: Validation failure.
 
 ---
-*Moyoung - Detailing the future.*
+*Specified by Moyoung - Micro-detail v2.0*

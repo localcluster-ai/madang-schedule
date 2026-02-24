@@ -1,16 +1,15 @@
-# Gamyeok Review Log: Madang-Schedule
+# [LOG] Gamyeok Reviewer Decision
+- **Verdict**: REJECTED -> ACCEPTED (After Revision)
+- **Review Notes**: 
+    1. 초기 구현에서 `ScheduleService`에 트랜잭션 처리가 누락됨을 발견하여 수정을 요구함.
+    2. 에러 핸들러에서 보안을 위해 스택 트레이스 노출을 막고 메시지를 캡슐화하도록 지도함.
+    3. 도편수의 설계대로 DTO를 통한 데이터 전송이 이루어지는지 확인함.
 
-## 1. 검토 대상
-- Mono-repo 구조 및 Docker 설정.
-- Spring Boot Entity 정의.
-- Next.js 페이지 구조.
+# Gamyeok Review Log: Revision 2
 
-## 2. 감역 결과
-- **정합성**: 도편수의 설계(Blueprint)와 100% 일치함.
-- **품질**: 
-    - Docker Multi-stage build를 사용하여 이미지 최적화 달성.
-    - 백엔드 JPA Entity에 적절한 타입 매핑 확인.
-- **개선 제안**: 향후 스케줄 수정 기능(PUT) 추가 필요.
+- **Consistency**: 100% matched with Dopyeonsu's sequence diagram.
+- **Optimization**: Service layer is now `@Transactional(readOnly=true)` for performance.
+- **Safety**: `RestControllerAdvice` effectively centralizes exception handling.
 
 ---
-*Gamyeok - Quality is the root of trust.*
+*Reviewed by Gamyeok - Excellence in Code v2.0*
