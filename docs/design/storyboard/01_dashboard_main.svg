@@ -1,0 +1,32 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background: Bright Hanok Theme -->
+  <rect width="800" height="600" fill="#F8FAFC"/>
+  
+  <!-- Sidebar: The Slate Wall -->
+  <rect width="240" height="600" fill="#1E293B"/>
+  <text x="40" y="50" font-family="Pretendard,sans-serif" font-size="20" font-weight="bold" fill="white">MADANG OS</text>
+  
+  <!-- Navigation Items -->
+  <rect x="20" y="100" width="200" height="40" rx="8" fill="#334155"/>
+  <text x="40" y="125" font-family="sans-serif" font-size="14" fill="white">📅 Schedules</text>
+  <text x="40" y="175" font-family="sans-serif" font-size="14" fill="#94A3B8">⚙️ Settings</text>
+  
+  <!-- Main Content Area -->
+  <text x="280" y="60" font-family="sans-serif" font-size="28" font-weight="bold" fill="#0F172A">My Schedule</text>
+  <text x="280" y="90" font-family="sans-serif" font-size="14" fill="#64748B">Manage your daily tasks with STARK intelligence.</text>
+  
+  <!-- Schedule Cards: Glassmorphism effect -->
+  <rect x="280" y="130" width="480" height="100" rx="16" fill="white" stroke="#E2E8F0"/>
+  <rect x="280" y="130" width="8" height="100" rx="4" fill="#3B82F6"/> <!-- Priority Indicator -->
+  <text x="310" y="165" font-family="sans-serif" font-size="18" font-weight="600" fill="#1E293B">STARK OS Core Review</text>
+  <text x="310" y="190" font-family="sans-serif" font-size="12" fill="#64748B">10:00 AM - 12:00 PM | Conference Room A</text>
+  
+  <rect x="280" y="250" width="480" height="100" rx="16" fill="white" stroke="#E2E8F0"/>
+  <rect x="280" y="250" width="8" height="100" rx="4" fill="#EF4444"/> <!-- High Priority -->
+  <text x="310" y="285" font-family="sans-serif" font-size="18" font-weight="600" fill="#1E293B">Final Deployment to NUC</text>
+  <text x="310" y="310" font-family="sans-serif" font-size="12" fill="#64748B">02:00 PM - 04:00 PM | Production Grid</text>
+
+  <!-- Add Button -->
+  <circle cx="740" cy="540" r="30" fill="#3B82F6" shadow="0 10 15 -3 rgba(59, 130, 246, 0.5)"/>
+  <text x="728" y="552" font-family="sans-serif" font-size="32" fill="white">+</text>
+</svg>
